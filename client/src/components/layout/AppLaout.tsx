@@ -1,4 +1,4 @@
-import { AppBar, Avatar, Box, Divider, Drawer, Icon, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Tooltip, Typography } from "@mui/material";
+import { AppBar, Avatar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Tooltip, Typography } from "@mui/material";
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { ArchiveIcon, BookmarksIcon, DashboardIcon, MenuIcon, NoteIcon, SettingsIcon } from "../../ui/icons";
 const DRAWER_WIDTH = 280;
@@ -54,6 +54,7 @@ const AppLaout = () => {
                     </Tooltip>
                 </Toolbar>
             </AppBar>
+            {/* Drawer for navigation */}
             <Box
                 component="nav"
                 sx={{ width: { md: DRAWER_WIDTH }, flexShrink: { md: 0 } }}>
@@ -121,8 +122,8 @@ const AppLaout = () => {
                                         borderRadius: 2,
                                     }}
                                 >
-                                    <ListItemIcon sx={{minWidth:40}}>
-                                        <SettingsIcon/>
+                                    <ListItemIcon sx={{ minWidth: 40 }}>
+                                        <SettingsIcon />
                                     </ListItemIcon>
                                     <ListItemText primary="Settings" />
                                 </ListItemButton>
@@ -132,7 +133,19 @@ const AppLaout = () => {
                     </Box>
                 </Drawer>
             </Box>
-            <Outlet />
+            <Box
+                component="main"
+                sx={{
+                    backgroundColor: 'background.default',
+                    flexGrow: 1,
+                    p: 3,
+                    width: { md: `calc(100% - ${DRAWER_WIDTH}px)` },
+                    minHeight: '100vh',
+                }}
+            >
+                <Toolbar />
+                <Outlet />
+            </Box>
         </Box>
     );
 }

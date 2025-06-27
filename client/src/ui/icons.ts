@@ -4,6 +4,10 @@ import {
     Archive as ArchiveIcon,
     Dashboard as DashboardIcon,
     Bookmarks as BookmarksIcon,
-    Settings as SettingsIcon
+    Settings as SettingsIcon,
+    Download as ExportIcon,
+    Add as AddIcon,
+    ArrowBack as ArrowBackIcon,
+    Save as SaveIcon
 } from "@mui/icons-material";
-export { MenuIcon , NoteIcon, ArchiveIcon, DashboardIcon, BookmarksIcon, SettingsIcon }; 
+export {SaveIcon, ArrowBackIcon, AddIcon, MenuIcon , NoteIcon, ArchiveIcon, DashboardIcon, BookmarksIcon, SettingsIcon, ExportIcon }; 

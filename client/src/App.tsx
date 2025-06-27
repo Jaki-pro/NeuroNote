@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router';
 import { NotFound, Dashboard } from './pages/';
 import AppLaout from './components/layout/AppLaout';
 import { theme } from './ui/theme';
+import CreateNote from './pages/CreateNote';
 function App() {
 
   return (
@@ -15,6 +16,9 @@ function App() {
         }>
           <Route index path='/' element={
             <Dashboard />
+          } />
+          <Route path='/notes/new' element={
+            <CreateNote/>
           } />
           <Route path='/bookmarks' element={
             <Box>
