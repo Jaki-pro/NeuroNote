@@ -86,6 +86,7 @@ const AppLaout = () => {
                                     <ListItemButton
                                         selected={location.pathname === item.path}
                                         onClick={() => navigate(item.path)}
+                                        key={item.text}
                                         sx={{
                                             borderRadius: 2,
                                             mb: 0.5,

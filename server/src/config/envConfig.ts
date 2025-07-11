@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const envConfig = {
-  PORT: process.env.PORT || 8007,
+  PORT: process.env.PORT || 5000,
   MONGODB_URI: process.env.MONGODB_URI || "",
   CORS_ORIGIN: process.env.CORS_ORIGIN,
 

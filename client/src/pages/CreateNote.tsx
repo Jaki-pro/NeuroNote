@@ -67,9 +67,9 @@ const CreateNote = () => {
         }
         setSuccessMessage("Successfully created note!");
         setErrorMessage("");
+        console.log("Saving note data:", noteData);
         // Here you would typically send the noteData to your backend API
-    }
-    console.log("Note Data:", noteData);
+    } 
     return (
         <Box>
             <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 3 }}>

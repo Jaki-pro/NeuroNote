@@ -5,6 +5,7 @@ import cors from "cors";
 import envConfig from "./config/envConfig";
 import connectDB from "./db";  
 import { requestLogger } from "./middlewares";
+import { noteRouter } from "./routes";
 // import { aiRouter, noteRouter } from "./routes";
 
 const app = express();
@@ -32,7 +33,7 @@ app.get("/health", (_req, res) => {
     res.status(200).json({ status: "ok" });
 });
 
-// app.use("/api/notes", noteRouter);
+app.use("/api/notes", noteRouter);
 // app.use("/api/ai", aiRouter);
 
 app.listen(envConfig.PORT, () => {
