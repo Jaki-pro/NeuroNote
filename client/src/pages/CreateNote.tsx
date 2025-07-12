@@ -5,6 +5,7 @@ import MarkdownEditor from "../components/editor/MarkdownEditor";
 import type { CreateNoteRequest } from "../types";
 import { useState } from "react";
 import MetadataForm from "../components/notes/MetadataForm";
+import { useCreateNoteMutation } from "../api/hooks";
 
 
 const CreateNote = () => {
@@ -25,7 +26,8 @@ const CreateNote = () => {
     const [successMessage, setSuccessMessage] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string>("");
 
-    
+    const createNoteMutation = useCreateNoteMutation();
+
     const validateForm = () => {
         const newErrors: Record<string, string> = {};
         if (!noteData.title.trim()) {
@@ -65,10 +67,35 @@ const CreateNote = () => {
             setErrorMessage("Please fill in all required fields.");
             return;
         }
-        setSuccessMessage("Successfully created note!");
-        setErrorMessage("");
-        console.log("Saving note data:", noteData);
+        // setSuccessMessage("Successfully created note!");
+        // setErrorMessage("");
+        // console.log("Saving note data:", noteData);
         // Here you would typically send the noteData to your backend API
+        try {
+            const createdNote = await createNoteMutation.mutateAsync(noteData);
+            setSuccessMessage("Note created successfully!");
+            setErrorMessage("");
+            console.log("Created note:", createdNote);
+            // Optionally, navigate to the home page
+            setTimeout(() => {
+                navigate(`/`); // 
+            }, 1500);
+            // Reset form after successful creation
+            setNoteData({
+                title: "",
+                content: "",
+                summary: "",
+                keyPoints: [],
+                tags: [],
+                sentiment: {
+                    score: 0,
+                    label: "neutral"
+                }
+            }); 
+        } catch (error) {
+            console.error("Error creating note:", error);
+            setErrorMessage("Failed to create note. Please try again.");
+        }
     } 
     return (
         <Box>

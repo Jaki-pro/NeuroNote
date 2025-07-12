@@ -2,6 +2,7 @@ export type CreateNoteRequest = {
     title: string;
     content: string;
     summary: string;
+    userId?: string;
     tags: string[];
     keyPoints: string[];
     sentiment: {

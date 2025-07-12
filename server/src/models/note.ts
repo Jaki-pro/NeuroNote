@@ -85,14 +85,7 @@ const noteSchema = new Schema<NoteType>(
     },
   },
   {
-    timestamps: true,
-    toJSON: {
-      transform: function (_doc, ret) {
-        ret._id = ret._id.toString();
-        ret.userId = ret.userId.toString();
-        return ret;
-      },
-    },
+    timestamps: true, 
   }
 );
 

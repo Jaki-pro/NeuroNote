@@ -6,9 +6,9 @@ export const createNote = async (req:Request, res:Response) => {
     console.log("Creating a new note...");
     try {
         // Simulate note creation logic
-        await NoteModel.create(newNote); 
-        res.status(201).json({ message: "Note created successfully", note: newNote });
-        console.log("Note created successfully:", newNote);
+        const savedNote = await NoteModel.create(newNote); 
+        res.status(201).json(savedNote); // Respond with the created note
+        console.log("Note created successfully:", savedNote);
     } catch (error:unknown) {
         console.error("Error creating note:", error);
         const errorMessage = (error instanceof Error) ? error.message : "Unknown error";
