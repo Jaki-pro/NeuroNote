@@ -49,8 +49,9 @@ function App() {
                 </Typography>
               </Box>
             } />
-            <Route path='*' element={<NotFound />} />
+            
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </ThemeProvider>
     </QueryClientProvider>

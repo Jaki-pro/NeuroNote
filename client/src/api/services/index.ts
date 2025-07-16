@@ -1,1 +1,1 @@
-export * as noteservices from "./notes";
+export * as noteServices from "./notes";
